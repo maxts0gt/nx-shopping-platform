@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/shopping-platform/src",
+  "sourceRoot": "apps/frontend/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -9,15 +9,15 @@
       "defaultConfiguration": "production",
       "options": {
         "compiler": "babel",
-        "outputPath": "dist/apps/shopping-platform",
-        "index": "apps/shopping-platform/src/index.html",
+        "outputPath": "dist/apps/frontend",
+        "index": "apps/frontend/src/index.html",
         "baseHref": "/",
-        "main": "apps/shopping-platform/src/main.tsx",
-        "polyfills": "apps/shopping-platform/src/polyfills.ts",
-        "tsConfig": "apps/shopping-platform/tsconfig.app.json",
+        "main": "apps/frontend/src/main.tsx",
+        "polyfills": "apps/frontend/src/polyfills.ts",
+        "tsConfig": "apps/frontend/tsconfig.app.json",
         "assets": [
-          "apps/shopping-platform/src/favicon.ico",
-          "apps/shopping-platform/src/assets"
+          "apps/frontend/src/favicon.ico",
+          "apps/frontend/src/assets"
         ],
         "styles": [],
         "scripts": [],
@@ -33,8 +33,8 @@
         "production": {
           "fileReplacements": [
             {
-              "replace": "apps/shopping-platform/src/environments/environment.ts",
-              "with": "apps/shopping-platform/src/environments/environment.prod.ts"
+              "replace": "apps/frontend/src/environments/environment.ts",
+              "with": "apps/frontend/src/environments/environment.prod.ts"
             }
           ],
           "optimization": true,
@@ -50,16 +50,16 @@
       "executor": "@nrwl/web:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "shopping-platform:build",
+        "buildTarget": "frontend:build",
         "hmr": true,
-        "proxyConfig": "apps/shopping-platform/proxy.conf.json"
+        "proxyConfig": "apps/frontend/proxy.conf.json"
       },
       "configurations": {
         "development": {
-          "buildTarget": "shopping-platform:build:development"
+          "buildTarget": "frontend:build:development"
         },
         "production": {
-          "buildTarget": "shopping-platform:build:production",
+          "buildTarget": "frontend:build:production",
           "hmr": false
         }
       }
@@ -68,14 +68,14 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/shopping-platform/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": ["apps/frontend/**/*.{ts,tsx,js,jsx}"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/shopping-platform"],
+      "outputs": ["coverage/apps/frontend"],
       "options": {
-        "jestConfig": "apps/shopping-platform/jest.config.ts",
+        "jestConfig": "apps/frontend/jest.config.ts",
         "passWithNoTests": true
       }
     }

@@ -2,9 +2,9 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "api": "apps/api",
-    "api-interfaces": "libs/api-interfaces",
-    "shopping-platform": "apps/shopping-platform",
-    "shopping-platform-e2e": "apps/shopping-platform-e2e"
+    "backend": "apps/backend",
+    "backend-interfaces": "libs/backend-interfaces",
+    "frontend": "apps/frontend",
+    "test": "apps/test"
   }
 }

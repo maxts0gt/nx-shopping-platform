@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@project-mez/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@project-mez/backend-interfaces": ["libs/backend-interfaces/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
