@@ -1,0 +1,84 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/shopping-platform/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/shopping-platform",
+        "index": "apps/shopping-platform/src/index.html",
+        "baseHref": "/",
+        "main": "apps/shopping-platform/src/main.tsx",
+        "polyfills": "apps/shopping-platform/src/polyfills.ts",
+        "tsConfig": "apps/shopping-platform/tsconfig.app.json",
+        "assets": [
+          "apps/shopping-platform/src/favicon.ico",
+          "apps/shopping-platform/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/shopping-platform/src/environments/environment.ts",
+              "with": "apps/shopping-platform/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "shopping-platform:build",
+        "hmr": true,
+        "proxyConfig": "apps/shopping-platform/proxy.conf.json"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "shopping-platform:build:development"
+        },
+        "production": {
+          "buildTarget": "shopping-platform:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/shopping-platform/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/shopping-platform"],
+      "options": {
+        "jestConfig": "apps/shopping-platform/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
